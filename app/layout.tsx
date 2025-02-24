@@ -6,6 +6,7 @@ import { ThemeProvider } from 'next-themes'
 
 import { Toaster } from '@/components/ui/sonner'
 import { cn } from '@/lib/utils'
+import { Providers } from './layout.client'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn('min-h-dvh font-sans antialiased', geistSans.variable)}>
         <ThemeProvider attribute="class" disableTransitionOnChange>
-          {children}
+          <Providers>{children}</Providers>
           <Toaster />
         </ThemeProvider>
       </body>
